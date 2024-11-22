@@ -1,0 +1,2012 @@
+login as: vboxuser
+vboxuser@192.168.1.139's password:
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 5.15.0-122-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of jue 21 nov 2024 23:07:38 UTC
+
+  System load:             0.0
+  Usage of /:              69.9% of 13.67GB
+  Memory usage:            5%
+  Swap usage:              0%
+  Processes:               131
+  Users logged in:         1
+  IPv4 address for enp0s3: 192.168.1.139
+  IPv6 address for enp0s3: 2a0c:5a80:a511:dc00:a00:27ff:fe5a:c4cd
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+El mantenimiento de seguridad expandido para Applications está desactivado
+
+Se pueden aplicar 0 actualizaciones de forma inmediata.
+
+Active ESM Apps para recibir futuras actualizaciones de seguridad adicionales.
+Vea https://ubuntu.com/esm o ejecute «sudo pro status»
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+New release '24.04.1 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Thu Nov 21 23:05:10 2024
+Command 'dar' not found, but can be installed with:
+sudo apt install dar
+vboxuser@bigdata:~$ wget https://downloads.apache.org/hbase/2.6.1/hbase-2.6.1-bin.tar.gz
+--2024-11-21 23:08:04--  https://downloads.apache.org/hbase/2.6.1/hbase-2.6.1-bin.tar.gz
+Resolving downloads.apache.org (downloads.apache.org)... 2a01:4f8:10a:39da::2, 2a01:4f9:3a:2c57::2, 88.99.208.237, ...
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:39da::2|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 337456264 (322M) [application/x-gzip]
+Saving to: ‘hbase-2.6.1-bin.tar.gz’
+
+hbase-2.6.1-bin.tar.gz                          100%[====================================================================================================>] 321,82M   530KB/s    in 12m 25s
+
+2024-11-21 23:20:30 (442 KB/s) - ‘hbase-2.6.1-bin.tar.gz’ saved [337456264/337456264]
+
+vboxuser@bigdata:~$ tar xzf hbase-2.6.1-bin.tar.gz
+vboxuser@bigdata:~$ sudo mv hbase-2.6.1 /usr/local/hbase
+[sudo] password for vboxuser:
+vboxuser@bigdata:~$ nano ~/.bashrc
+vboxuser@bigdata:~$ source ~/.bashrc
+vboxuser@bigdata:~$ sudo nano /usr/local/hbase/conf/hbase-site.xml
+vboxuser@bigdata:~$ sudo nano /usr/local/hbase/conf/hbase-env.sh
+vboxuser@bigdata:~$ start-hbase.sh
+running master, logging to /usr/local/hbase/logs/hbase-vboxuser-master-bigdata.out
+vboxuser@bigdata:~$ hbase shell
+HBase Shell
+Use "help" to get list of supported commands.
+Use "exit" to quit this interactive shell.
+For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell
+Version 2.6.1, r7ed50b4dd742269a78875fb32112215f831284ff, Wed Oct  9 10:33:23 UTC 2024
+Took 0.0042 seconds
+hbase:001:0> status
+1 active master, 0 backup masters, 1 servers, 0 dead, 2.0000 average load
+Took 1.6658 seconds
+hbase:002:0> exit
+vboxuser@bigdata:~$ pip install happybase
+Command 'pip' not found, but can be installed with:
+sudo apt install python3-pip
+vboxuser@bigdata:~$ sudo apt install python3-pip
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias... Hecho
+Leyendo la información de estado... Hecho
+Se instalarán los siguientes paquetes adicionales:
+  build-essential bzip2 cpp cpp-11 dpkg-dev fakeroot g++ g++-11 gcc gcc-11 gcc-11-base javascript-common libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan6
+  libatomic1 libc-dev-bin libc-devtools libc6-dev libcc1-0 libcrypt-dev libdeflate0 libdpkg-perl libexpat1-dev libfakeroot libfile-fcntllock-perl libgcc-11-dev libgd3 libgomp1 libisl23
+  libitm1 libjbig0 libjs-jquery libjs-sphinxdoc libjs-underscore liblsan0 libmpc3 libnsl-dev libpython3-dev libpython3.10-dev libquadmath0 libstdc++-11-dev libtiff5 libtirpc-dev libtsan0
+  libubsan1 libwebp7 linux-libc-dev lto-disabled-list make manpages-dev python3-dev python3-wheel python3.10-dev rpcsvc-proto zlib1g-dev
+Paquetes sugeridos:
+  bzip2-doc cpp-doc gcc-11-locales debian-keyring g++-multilib g++-11-multilib gcc-11-doc gcc-multilib autoconf automake libtool flex bison gdb gcc-doc gcc-11-multilib apache2 | lighttpd
+  | httpd glibc-doc bzr libgd-tools libstdc++-11-doc make-doc
+Se instalarán los siguientes paquetes NUEVOS:
+  build-essential bzip2 cpp cpp-11 dpkg-dev fakeroot g++ g++-11 gcc gcc-11 gcc-11-base javascript-common libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan6
+  libatomic1 libc-dev-bin libc-devtools libc6-dev libcc1-0 libcrypt-dev libdeflate0 libdpkg-perl libexpat1-dev libfakeroot libfile-fcntllock-perl libgcc-11-dev libgd3 libgomp1 libisl23
+  libitm1 libjbig0 libjs-jquery libjs-sphinxdoc libjs-underscore liblsan0 libmpc3 libnsl-dev libpython3-dev libpython3.10-dev libquadmath0 libstdc++-11-dev libtiff5 libtirpc-dev libtsan0
+  libubsan1 libwebp7 linux-libc-dev lto-disabled-list make manpages-dev python3-dev python3-pip python3-wheel python3.10-dev rpcsvc-proto zlib1g-dev
+0 actualizados, 58 nuevos se instalarán, 0 para eliminar y 1 no actualizados.
+Se necesita descargar 1.322 kB/69,9 MB de archivos.
+Se utilizarán 235 MB de espacio de disco adicional después de esta operación.
+¿Desea continuar? [S/n] s
+Ign:1 http://es.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-libc-dev amd64 5.15.0-122.132
+Err:1 http://security.ubuntu.com/ubuntu jammy-updates/main amd64 linux-libc-dev amd64 5.15.0-122.132
+  404  Not Found [IP: 2620:2d:4002:1::103 80]
+E: Fallo al obtener http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_5.15.0-122.132_amd64.deb  404  Not Found [IP: 2620:2d:4002:1::103 80]
+E: No se pudieron obtener algunos archivos, ¿quizás deba ejecutar «apt-get update» o deba intentarlo de nuevo con --fix-missing?
+vboxuser@bigdata:~$ pip install happybase
+Command 'pip' not found, but can be installed with:
+sudo apt install python3-pip
+vboxuser@bigdata:~$ sudo apt install python3-pip
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias... Hecho
+Leyendo la información de estado... Hecho
+Se instalarán los siguientes paquetes adicionales:
+  build-essential bzip2 cpp cpp-11 dpkg-dev fakeroot g++ g++-11 gcc gcc-11 gcc-11-base javascript-common libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan6
+  libatomic1 libc-dev-bin libc-devtools libc6-dev libcc1-0 libcrypt-dev libdeflate0 libdpkg-perl libexpat1-dev libfakeroot libfile-fcntllock-perl libgcc-11-dev libgd3 libgomp1 libisl23
+  libitm1 libjbig0 libjs-jquery libjs-sphinxdoc libjs-underscore liblsan0 libmpc3 libnsl-dev libpython3-dev libpython3.10-dev libquadmath0 libstdc++-11-dev libtiff5 libtirpc-dev libtsan0
+  libubsan1 libwebp7 linux-libc-dev lto-disabled-list make manpages-dev python3-dev python3-wheel python3.10-dev rpcsvc-proto zlib1g-dev
+Paquetes sugeridos:
+  bzip2-doc cpp-doc gcc-11-locales debian-keyring g++-multilib g++-11-multilib gcc-11-doc gcc-multilib autoconf automake libtool flex bison gdb gcc-doc gcc-11-multilib apache2 | lighttpd
+  | httpd glibc-doc bzr libgd-tools libstdc++-11-doc make-doc
+Se instalarán los siguientes paquetes NUEVOS:
+  build-essential bzip2 cpp cpp-11 dpkg-dev fakeroot g++ g++-11 gcc gcc-11 gcc-11-base javascript-common libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan6
+  libatomic1 libc-dev-bin libc-devtools libc6-dev libcc1-0 libcrypt-dev libdeflate0 libdpkg-perl libexpat1-dev libfakeroot libfile-fcntllock-perl libgcc-11-dev libgd3 libgomp1 libisl23
+  libitm1 libjbig0 libjs-jquery libjs-sphinxdoc libjs-underscore liblsan0 libmpc3 libnsl-dev libpython3-dev libpython3.10-dev libquadmath0 libstdc++-11-dev libtiff5 libtirpc-dev libtsan0
+  libubsan1 libwebp7 linux-libc-dev lto-disabled-list make manpages-dev python3-dev python3-pip python3-wheel python3.10-dev rpcsvc-proto zlib1g-dev
+0 actualizados, 58 nuevos se instalarán, 0 para eliminar y 1 no actualizados.
+Se necesita descargar 1.322 kB/69,9 MB de archivos.
+Se utilizarán 235 MB de espacio de disco adicional después de esta operación.
+¿Desea continuar? [S/n] S
+Ign:1 http://es.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-libc-dev amd64 5.15.0-122.132
+Err:1 http://security.ubuntu.com/ubuntu jammy-updates/main amd64 linux-libc-dev amd64 5.15.0-122.132
+  404  Not Found [IP: 2620:2d:4002:1::103 80]
+E: Fallo al obtener http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_5.15.0-122.132_amd64.deb  404  Not Found [IP: 2620:2d:4002:1::103 80]
+E: No se pudieron obtener algunos archivos, ¿quizás deba ejecutar «apt-get update» o deba intentarlo de nuevo con --fix-missing?
+vboxuser@bigdata:~$ apt-get update
+Leyendo lista de paquetes... Hecho
+E: No se pudo abrir el fichero de bloqueo «/var/lib/apt/lists/lock» - open (13: Permission denied)
+E: No se pudo bloquear el directorio /var/lib/apt/lists/
+W: Se produjo un problema al desligar el fichero /var/cache/apt/pkgcache.bin - RemoveCaches (13: Permission denied)
+W: Se produjo un problema al desligar el fichero /var/cache/apt/srcpkgcache.bin - RemoveCaches (13: Permission denied)
+vboxuser@bigdata:~$ --fix-missing
+--fix-missing: command not found
+vboxuser@bigdata:~$ pip install happybase
+Command 'pip' not found, but can be installed with:
+sudo apt install python3-pip
+vboxuser@bigdata:~$ sudo apt install python3-pip
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias... Hecho
+Leyendo la información de estado... Hecho
+Se instalarán los siguientes paquetes adicionales:
+  build-essential bzip2 cpp cpp-11 dpkg-dev fakeroot g++ g++-11 gcc gcc-11 gcc-11-base javascript-common libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan6
+  libatomic1 libc-dev-bin libc-devtools libc6-dev libcc1-0 libcrypt-dev libdeflate0 libdpkg-perl libexpat1-dev libfakeroot libfile-fcntllock-perl libgcc-11-dev libgd3 libgomp1 libisl23
+  libitm1 libjbig0 libjs-jquery libjs-sphinxdoc libjs-underscore liblsan0 libmpc3 libnsl-dev libpython3-dev libpython3.10-dev libquadmath0 libstdc++-11-dev libtiff5 libtirpc-dev libtsan0
+  libubsan1 libwebp7 linux-libc-dev lto-disabled-list make manpages-dev python3-dev python3-wheel python3.10-dev rpcsvc-proto zlib1g-dev
+Paquetes sugeridos:
+  bzip2-doc cpp-doc gcc-11-locales debian-keyring g++-multilib g++-11-multilib gcc-11-doc gcc-multilib autoconf automake libtool flex bison gdb gcc-doc gcc-11-multilib apache2 | lighttpd
+  | httpd glibc-doc bzr libgd-tools libstdc++-11-doc make-doc
+Se instalarán los siguientes paquetes NUEVOS:
+  build-essential bzip2 cpp cpp-11 dpkg-dev fakeroot g++ g++-11 gcc gcc-11 gcc-11-base javascript-common libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan6
+  libatomic1 libc-dev-bin libc-devtools libc6-dev libcc1-0 libcrypt-dev libdeflate0 libdpkg-perl libexpat1-dev libfakeroot libfile-fcntllock-perl libgcc-11-dev libgd3 libgomp1 libisl23
+  libitm1 libjbig0 libjs-jquery libjs-sphinxdoc libjs-underscore liblsan0 libmpc3 libnsl-dev libpython3-dev libpython3.10-dev libquadmath0 libstdc++-11-dev libtiff5 libtirpc-dev libtsan0
+  libubsan1 libwebp7 linux-libc-dev lto-disabled-list make manpages-dev python3-dev python3-pip python3-wheel python3.10-dev rpcsvc-proto zlib1g-dev
+0 actualizados, 58 nuevos se instalarán, 0 para eliminar y 1 no actualizados.
+Se necesita descargar 1.322 kB/69,9 MB de archivos.
+Se utilizarán 235 MB de espacio de disco adicional después de esta operación.
+¿Desea continuar? [S/n] s
+Ign:1 http://es.archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-libc-dev amd64 5.15.0-122.132
+Err:1 http://security.ubuntu.com/ubuntu jammy-updates/main amd64 linux-libc-dev amd64 5.15.0-122.132
+  404  Not Found [IP: 2620:2d:4000:1::101 80]
+E: Fallo al obtener http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_5.15.0-122.132_amd64.deb  404  Not Found [IP: 2620:2d:4000:1::101 80]
+E: No se pudieron obtener algunos archivos, ¿quizás deba ejecutar «apt-get update» o deba intentarlo de nuevo con --fix-missing?
+vboxuser@bigdata:~$ hbase-daemon.sh start thrift
+running thrift, logging to /usr/local/hbase/logs/hbase-vboxuser-thrift-bigdata.out
+vboxuser@bigdata:~$ nano test_hbase.py
+vboxuser@bigdata:~$ python3 test_hbase.py
+Traceback (most recent call last):
+  File "/home/vboxuser/test_hbase.py", line 1, in <module>
+    import happybase
+ModuleNotFoundError: No module named 'happybase'
+vboxuser@bigdata:~$ pip install pandas
+Command 'pip' not found, but can be installed with:
+sudo apt install python3-pip
+vboxuser@bigdata:~$ hbase shell
+HBase Shell
+Use "help" to get list of supported commands.
+Use "exit" to quit this interactive shell.
+For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell
+Version 2.6.1, r7ed50b4dd742269a78875fb32112215f831284ff, Wed Oct  9 10:33:23 UTC 2024
+Took 0.0054 seconds
+hbase:001:0> create 'estudiantes', 'info_personal', 'academico'
+Created table estudiantes
+Took 1.1966 seconds
+=> Hbase::Table - estudiantes
+hbase:002:0> list
+TABLE
+estudiantes
+1 row(s)
+Took 0.0315 seconds
+=> ["estudiantes"]
+hbase:003:0> put 'estudiantes', '1', 'info_personal:nombre', 'Juan Perez'
+Took 0.1498 seconds
+hbase:004:0> put 'estudiantes', '1', 'info_personal:edad', '22'
+Took 0.0089 seconds
+hbase:005:0> put 'estudiantes', '1', 'info_personal:genero', 'M'
+Took 0.0168 seconds
+hbase:006:0> put 'estudiantes', '1', 'academico:calificaciones', '85'
+Took 0.0111 seconds
+hbase:007:0> put 'estudiantes', '1', 'academico:riesgo_desercion', 'bajo'
+Took 0.0115 seconds
+hbase:008:0> scan 'estudiantes'
+ROW                                              COLUMN+CELL
+ 1                                               column=academico:calificaciones, timestamp=2024-11-21T23:45:40.244, value=85
+ 1                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:45:40.327, value=bajo
+ 1                                               column=info_personal:edad, timestamp=2024-11-21T23:45:40.117, value=22
+ 1                                               column=info_personal:genero, timestamp=2024-11-21T23:45:40.168, value=M
+ 1                                               column=info_personal:nombre, timestamp=2024-11-21T23:45:40.071, value=Juan Perez
+1 row(s)
+Took 0.0646 seconds
+hbase:009:0> for i in 1..100
+  put 'estudiantes', i.to_s, 'info_personal:nombre', "Estudiante#{i}"
+  put 'estudiantes', i.to_s, 'info_personal:edad', (18 + rand(10)).to_s
+  put 'estudiantes', i.to_s, 'info_personal:genero', ['M', 'F'].sample
+  put 'estudiantes', i.to_s, 'academico:calificaciones', (50 + rand(50)).to_s
+  put 'estudiantes', i.to_s, 'academico:riesgo_desercion', ['bajo', 'medio', 'alto'].sample
+end
+Took 0.0170 seconds
+Took 0.0139 seconds
+Took 0.0104 seconds
+Took 0.0100 seconds
+Took 0.0090 seconds
+Took 0.0073 seconds
+Took 0.0070 seconds
+Took 0.0090 seconds
+Took 0.0057 seconds
+Took 0.0111 seconds
+Took 0.0083 seconds
+Took 0.0076 seconds
+Took 0.0057 seconds
+Took 0.0059 seconds
+Took 0.0083 seconds
+Took 0.0053 seconds
+Took 0.0069 seconds
+Took 0.0044 seconds
+Took 0.0049 seconds
+Took 0.0085 seconds
+Took 0.0094 seconds
+Took 0.0047 seconds
+Took 0.0051 seconds
+Took 0.0050 seconds
+Took 0.0032 seconds
+Took 0.0049 seconds
+Took 0.0051 seconds
+Took 0.0050 seconds
+Took 0.0099 seconds
+Took 0.0052 seconds
+Took 0.0064 seconds
+Took 0.0045 seconds
+Took 0.0065 seconds
+Took 0.0102 seconds
+Took 0.0079 seconds
+Took 0.0032 seconds
+Took 0.0053 seconds
+Took 0.0047 seconds
+Took 0.0076 seconds
+Took 0.0050 seconds
+Took 0.0045 seconds
+Took 0.0161 seconds
+Took 0.0049 seconds
+Took 0.0053 seconds
+Took 0.0050 seconds
+Took 0.0062 seconds
+Took 0.0053 seconds
+Took 0.0063 seconds
+Took 0.0106 seconds
+Took 0.0092 seconds
+Took 0.0066 seconds
+Took 0.0044 seconds
+Took 0.0100 seconds
+Took 0.0069 seconds
+Took 0.0040 seconds
+Took 0.0050 seconds
+Took 0.0085 seconds
+Took 0.0044 seconds
+Took 0.0073 seconds
+Took 0.0064 seconds
+Took 0.0079 seconds
+Took 0.0043 seconds
+Took 0.0039 seconds
+Took 0.0065 seconds
+Took 0.0045 seconds
+Took 0.0067 seconds
+Took 0.0038 seconds
+Took 0.0042 seconds
+Took 0.0061 seconds
+Took 0.0038 seconds
+Took 0.0061 seconds
+Took 0.0089 seconds
+Took 0.0061 seconds
+Took 0.0043 seconds
+Took 0.0059 seconds
+Took 0.0049 seconds
+Took 0.0060 seconds
+Took 0.0039 seconds
+Took 0.0036 seconds
+Took 0.0051 seconds
+Took 0.0047 seconds
+Took 0.0036 seconds
+Took 0.0037 seconds
+Took 0.0049 seconds
+Took 0.0039 seconds
+Took 0.0031 seconds
+Took 0.0048 seconds
+Took 0.0052 seconds
+Took 0.0035 seconds
+Took 0.0044 seconds
+Took 0.0047 seconds
+Took 0.0040 seconds
+Took 0.0048 seconds
+Took 0.0032 seconds
+Took 0.0034 seconds
+Took 0.0061 seconds
+Took 0.0074 seconds
+Took 0.0055 seconds
+Took 0.0063 seconds
+Took 0.0043 seconds
+Took 0.0065 seconds
+Took 0.0044 seconds
+Took 0.0038 seconds
+Took 0.0062 seconds
+Took 0.0039 seconds
+Took 0.0069 seconds
+Took 0.0039 seconds
+Took 0.0066 seconds
+Took 0.0059 seconds
+Took 0.0058 seconds
+Took 0.0051 seconds
+Took 0.0067 seconds
+Took 0.0043 seconds
+Took 0.0065 seconds
+Took 0.0051 seconds
+Took 0.0052 seconds
+Took 0.0071 seconds
+Took 0.0038 seconds
+Took 0.0086 seconds
+Took 0.0046 seconds
+Took 0.0046 seconds
+Took 0.0035 seconds
+Took 0.0066 seconds
+Took 0.0051 seconds
+Took 0.0036 seconds
+Took 0.0044 seconds
+Took 0.0051 seconds
+Took 0.0046 seconds
+Took 0.0055 seconds
+Took 0.0043 seconds
+Took 0.0038 seconds
+Took 0.0045 seconds
+Took 0.0046 seconds
+Took 0.0029 seconds
+Took 0.0040 seconds
+Took 0.0060 seconds
+Took 0.0029 seconds
+Took 0.0062 seconds
+Took 0.0057 seconds
+Took 0.0031 seconds
+Took 0.0027 seconds
+Took 0.0056 seconds
+Took 0.0026 seconds
+Took 0.0030 seconds
+Took 0.0048 seconds
+Took 0.0040 seconds
+Took 0.0036 seconds
+Took 0.0052 seconds
+Took 0.0050 seconds
+Took 0.0039 seconds
+Took 0.0042 seconds
+Took 0.0025 seconds
+Took 0.0032 seconds
+Took 0.0038 seconds
+Took 0.0056 seconds
+Took 0.0035 seconds
+Took 0.0066 seconds
+Took 0.0029 seconds
+Took 0.0041 seconds
+Took 0.0094 seconds
+Took 0.0032 seconds
+Took 0.0074 seconds
+Took 0.0035 seconds
+Took 0.0024 seconds
+Took 0.0058 seconds
+Took 0.0029 seconds
+Took 0.0033 seconds
+Took 0.0058 seconds
+Took 0.0070 seconds
+Took 0.0036 seconds
+Took 0.0053 seconds
+Took 0.0055 seconds
+Took 0.0054 seconds
+Took 0.0042 seconds
+Took 0.0057 seconds
+Took 0.0046 seconds
+Took 0.0037 seconds
+Took 0.0045 seconds
+Took 0.0038 seconds
+Took 0.0030 seconds
+Took 0.0027 seconds
+Took 0.0046 seconds
+Took 0.0046 seconds
+Took 0.0029 seconds
+Took 0.0039 seconds
+Took 0.0054 seconds
+Took 0.0042 seconds
+Took 0.0028 seconds
+Took 0.0040 seconds
+Took 0.0042 seconds
+Took 0.0032 seconds
+Took 0.0048 seconds
+Took 0.0042 seconds
+Took 0.0052 seconds
+Took 0.0055 seconds
+Took 0.0037 seconds
+Took 0.0028 seconds
+Took 0.0034 seconds
+Took 0.0060 seconds
+Took 0.0034 seconds
+Took 0.0032 seconds
+Took 0.0041 seconds
+Took 0.0079 seconds
+Took 0.0043 seconds
+Took 0.0061 seconds
+Took 0.0031 seconds
+Took 0.0038 seconds
+Took 0.0047 seconds
+Took 0.0033 seconds
+Took 0.0032 seconds
+Took 0.0039 seconds
+Took 0.0049 seconds
+Took 0.0037 seconds
+Took 0.0040 seconds
+Took 0.0058 seconds
+Took 0.0038 seconds
+Took 0.0040 seconds
+Took 0.0038 seconds
+Took 0.0034 seconds
+Took 0.0051 seconds
+Took 0.0035 seconds
+Took 0.0052 seconds
+Took 0.0045 seconds
+Took 0.0049 seconds
+Took 0.0029 seconds
+Took 0.0042 seconds
+Took 0.0032 seconds
+Took 0.0049 seconds
+Took 0.0034 seconds
+Took 0.0032 seconds
+Took 0.0042 seconds
+Took 0.0054 seconds
+Took 0.0036 seconds
+Took 0.0064 seconds
+Took 0.0062 seconds
+Took 0.0031 seconds
+Took 0.0041 seconds
+Took 0.0036 seconds
+Took 0.0036 seconds
+Took 0.0049 seconds
+Took 0.0033 seconds
+Took 0.0031 seconds
+Took 0.0055 seconds
+Took 0.0026 seconds
+Took 0.0033 seconds
+Took 0.0030 seconds
+Took 0.0045 seconds
+Took 0.0025 seconds
+Took 0.0045 seconds
+Took 0.0042 seconds
+Took 0.0038 seconds
+Took 0.0040 seconds
+Took 0.0047 seconds
+Took 0.0028 seconds
+Took 0.0070 seconds
+Took 0.0039 seconds
+Took 0.0039 seconds
+Took 0.0055 seconds
+Took 0.0038 seconds
+Took 0.0038 seconds
+Took 0.0063 seconds
+Took 0.0032 seconds
+Took 0.0038 seconds
+Took 0.0057 seconds
+Took 0.0031 seconds
+Took 0.0022 seconds
+Took 0.0056 seconds
+Took 0.0046 seconds
+Took 0.0030 seconds
+Took 0.0030 seconds
+Took 0.0032 seconds
+Took 0.0028 seconds
+Took 0.0048 seconds
+Took 0.0037 seconds
+Took 0.0045 seconds
+Took 0.0026 seconds
+Took 0.0031 seconds
+Took 0.0040 seconds
+Took 0.0031 seconds
+Took 0.0042 seconds
+Took 0.0024 seconds
+Took 0.0062 seconds
+Took 0.0044 seconds
+Took 0.0032 seconds
+Took 0.0033 seconds
+Took 0.0037 seconds
+Took 0.0023 seconds
+Took 0.0018 seconds
+Took 0.0029 seconds
+Took 0.0048 seconds
+Took 0.0036 seconds
+Took 0.0030 seconds
+Took 0.0036 seconds
+Took 0.0042 seconds
+Took 0.0040 seconds
+Took 0.0041 seconds
+Took 0.0067 seconds
+Took 0.0029 seconds
+Took 0.0050 seconds
+Took 0.0048 seconds
+Took 0.0037 seconds
+Took 0.0052 seconds
+Took 0.0036 seconds
+Took 0.0027 seconds
+Took 0.0042 seconds
+Took 0.0039 seconds
+Took 0.0032 seconds
+Took 0.0022 seconds
+Took 0.0019 seconds
+Took 0.0057 seconds
+Took 0.0026 seconds
+Took 0.0024 seconds
+Took 0.0064 seconds
+Took 0.0045 seconds
+Took 0.0026 seconds
+Took 0.0033 seconds
+Took 0.0033 seconds
+Took 0.0032 seconds
+Took 0.0032 seconds
+Took 0.0057 seconds
+Took 0.0048 seconds
+Took 0.0029 seconds
+Took 0.0031 seconds
+Took 0.0021 seconds
+Took 0.0048 seconds
+Took 0.0039 seconds
+Took 0.0039 seconds
+Took 0.0040 seconds
+Took 0.0040 seconds
+Took 0.0026 seconds
+Took 0.0023 seconds
+Took 0.0028 seconds
+Took 0.0052 seconds
+Took 0.0030 seconds
+Took 0.0033 seconds
+Took 0.0110 seconds
+Took 0.0048 seconds
+Took 0.0084 seconds
+Took 0.0033 seconds
+Took 0.0054 seconds
+Took 0.0034 seconds
+Took 0.0029 seconds
+Took 0.0031 seconds
+Took 0.0067 seconds
+Took 0.0033 seconds
+Took 0.0029 seconds
+Took 0.0050 seconds
+Took 0.0032 seconds
+Took 0.0022 seconds
+Took 0.0031 seconds
+Took 0.0039 seconds
+Took 0.0031 seconds
+Took 0.0041 seconds
+Took 0.0029 seconds
+Took 0.0036 seconds
+Took 0.0019 seconds
+Took 0.0023 seconds
+Took 0.0050 seconds
+Took 0.0053 seconds
+Took 0.0024 seconds
+Took 0.0024 seconds
+Took 0.0043 seconds
+Took 0.0044 seconds
+Took 0.0033 seconds
+Took 0.0054 seconds
+Took 0.0029 seconds
+Took 0.0048 seconds
+Took 0.0061 seconds
+Took 0.0035 seconds
+Took 0.0034 seconds
+Took 0.0029 seconds
+Took 0.0062 seconds
+Took 0.0030 seconds
+Took 0.0031 seconds
+Took 0.0137 seconds
+Took 0.0036 seconds
+Took 0.0078 seconds
+Took 0.0030 seconds
+Took 0.0029 seconds
+Took 0.0052 seconds
+Took 0.0039 seconds
+Took 0.0024 seconds
+Took 0.0023 seconds
+Took 0.0038 seconds
+Took 0.0033 seconds
+Took 0.0018 seconds
+Took 0.0019 seconds
+Took 0.0018 seconds
+Took 0.0054 seconds
+Took 0.0032 seconds
+Took 0.0026 seconds
+Took 0.0038 seconds
+Took 0.0042 seconds
+Took 0.0034 seconds
+Took 0.0038 seconds
+Took 0.0028 seconds
+Took 0.0043 seconds
+Took 0.0026 seconds
+Took 0.0024 seconds
+Took 0.0020 seconds
+Took 0.0024 seconds
+Took 0.0033 seconds
+Took 0.0031 seconds
+Took 0.0026 seconds
+Took 0.0020 seconds
+Took 0.0029 seconds
+Took 0.0058 seconds
+Took 0.0031 seconds
+Took 0.0023 seconds
+Took 0.0017 seconds
+Took 0.0055 seconds
+Took 0.0021 seconds
+Took 0.0022 seconds
+Took 0.0031 seconds
+Took 0.0035 seconds
+Took 0.0037 seconds
+Took 0.0019 seconds
+Took 0.0023 seconds
+Took 0.0021 seconds
+Took 0.0027 seconds
+Took 0.0039 seconds
+Took 0.0022 seconds
+Took 0.0027 seconds
+Took 0.0037 seconds
+Took 0.0034 seconds
+Took 0.0037 seconds
+Took 0.0025 seconds
+Took 0.0021 seconds
+Took 0.0019 seconds
+Took 0.0040 seconds
+Took 0.0028 seconds
+Took 0.0030 seconds
+Took 0.0038 seconds
+Took 0.0039 seconds
+Took 0.0042 seconds
+Took 0.0039 seconds
+Took 0.0024 seconds
+Took 0.0039 seconds
+Took 0.0023 seconds
+Took 0.0040 seconds
+Took 0.0029 seconds
+Took 0.0034 seconds
+Took 0.0043 seconds
+Took 0.0038 seconds
+Took 0.0027 seconds
+Took 0.0026 seconds
+Took 0.0027 seconds
+Took 0.0041 seconds
+Took 0.0022 seconds
+Took 0.0018 seconds
+Took 0.0040 seconds
+Took 0.0030 seconds
+Took 0.0019 seconds
+Took 0.0018 seconds
+Took 0.0018 seconds
+Took 0.0033 seconds
+Took 0.0038 seconds
+Took 0.0020 seconds
+Took 0.0018 seconds
+Took 0.0017 seconds
+Took 0.0018 seconds
+Took 0.0037 seconds
+Took 0.0025 seconds
+Took 0.0021 seconds
+Took 0.0027 seconds
+Took 0.0023 seconds
+Took 0.0037 seconds
+Took 0.0021 seconds
+Took 0.0019 seconds
+Took 0.0020 seconds
+Took 0.0023 seconds
+Took 0.0026 seconds
+Took 0.0048 seconds
+Took 0.0021 seconds
+Took 0.0020 seconds
+Took 0.0040 seconds
+Took 0.0039 seconds
+Took 0.0026 seconds
+Took 0.0021 seconds
+Took 0.0024 seconds
+Took 0.0031 seconds
+Took 0.0043 seconds
+Took 0.0030 seconds
+Took 0.0049 seconds
+Took 0.0042 seconds
+Took 0.0032 seconds
+Took 0.0056 seconds
+Took 0.0033 seconds
+Took 0.0034 seconds
+Took 0.0022 seconds
+Took 0.0057 seconds
+Took 0.0025 seconds
+Took 0.0054 seconds
+Took 0.0041 seconds
+Took 0.0056 seconds
+Took 0.0031 seconds
+Took 0.0034 seconds
+Took 0.0042 seconds
+Took 0.0028 seconds
+Took 0.0026 seconds
+=> 1..100
+hbase:016:0> scan 'estudiantes'
+ROW                                              COLUMN+CELL
+ 1                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.321, value=66
+ 1                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.334, value=medio
+ 1                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.293, value=22
+ 1                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.307, value=M
+ 1                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.280, value=Estudiante1
+ 10                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.749, value=54
+ 10                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.770, value=medio
+ 10                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.708, value=23
+ 10                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.725, value=F
+ 10                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.698, value=Estudiante10
+ 100                                             column=academico:calificaciones, timestamp=2024-11-21T23:50:20.087, value=86
+ 100                                             column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.090, value=alto
+ 100                                             column=info_personal:edad, timestamp=2024-11-21T23:50:20.077, value=26
+ 100                                             column=info_personal:genero, timestamp=2024-11-21T23:50:20.082, value=M
+ 100                                             column=info_personal:nombre, timestamp=2024-11-21T23:50:20.073, value=Estudiante100
+ 11                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.807, value=59
+ 11                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.816, value=bajo
+ 11                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.787, value=23
+ 11                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.795, value=F
+ 11                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.778, value=Estudiante11
+ 12                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.847, value=89
+ 12                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.856, value=bajo
+ 12                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.830, value=23
+ 12                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.839, value=M
+ 12                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.822, value=Estudiante12
+ 13                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.883, value=69
+ 13                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.890, value=medio
+ 13                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.871, value=26
+ 13                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.876, value=M
+ 13                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.865, value=Estudiante13
+ 14                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.917, value=86
+ 14                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.923, value=bajo
+ 14                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.903, value=24
+ 14                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.909, value=F
+ 14                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.896, value=Estudiante14
+ 15                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.955, value=85
+ 15                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.961, value=alto
+ 15                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.937, value=27
+ 15                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.950, value=F
+ 15                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.929, value=Estudiante15
+ 16                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.993, value=70
+ 16                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.998, value=alto
+ 16                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.983, value=26
+ 16                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.988, value=M
+ 16                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.975, value=Estudiante16
+ 17                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.028, value=93
+ 17                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.035, value=bajo
+ 17                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.016, value=19
+ 17                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.023, value=M
+ 17                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.009, value=Estudiante17
+ 18                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.055, value=67
+ 18                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.060, value=alto
+ 18                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.044, value=22
+ 18                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.051, value=F
+ 18                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.039, value=Estudiante18
+ 19                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.086, value=86
+ 19                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.090, value=alto
+ 19                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.072, value=20
+ 19                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.077, value=F
+ 19                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.067, value=Estudiante19
+ 2                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.373, value=61
+ 2                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.382, value=alto
+ 2                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.352, value=22
+ 2                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.362, value=M
+ 2                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.342, value=Estudiante2
+ 20                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.119, value=59
+ 20                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.124, value=bajo
+ 20                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.104, value=23
+ 20                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.111, value=M
+ 20                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.094, value=Estudiante20
+ 21                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.152, value=74
+ 21                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.158, value=alto
+ 21                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.139, value=27
+ 21                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.144, value=M
+ 21                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.130, value=Estudiante21
+ 22                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.189, value=52
+ 22                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.195, value=bajo
+ 22                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.173, value=27
+ 22                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.179, value=F
+ 22                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.164, value=Estudiante22
+ 23                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.227, value=55
+ 23                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.235, value=alto
+ 23                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.212, value=27
+ 23                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.221, value=M
+ 23                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.205, value=Estudiante23
+ 24                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.265, value=86
+ 24                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.274, value=bajo
+ 24                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.247, value=22
+ 24                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.254, value=M
+ 24                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.241, value=Estudiante24
+ 25                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.301, value=79
+ 25                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.306, value=medio
+ 25                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.285, value=18
+ 25                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.293, value=F
+ 25                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.280, value=Estudiante25
+ 26                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.329, value=76
+ 26                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.335, value=bajo
+ 26                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.316, value=23
+ 26                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.323, value=F
+ 26                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.310, value=Estudiante26
+ 27                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.355, value=63
+ 27                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.359, value=medio
+ 27                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.344, value=25
+ 27                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.350, value=F
+ 27                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.340, value=Estudiante27
+ 28                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.384, value=79
+ 28                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.389, value=alto
+ 28                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.370, value=23
+ 28                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.376, value=M
+ 28                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.366, value=Estudiante28
+ 29                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.408, value=69
+ 29                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.412, value=alto
+ 29                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.399, value=24
+ 29                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.404, value=F
+ 29                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.393, value=Estudiante29
+ 3                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.420, value=75
+ 3                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.428, value=medio
+ 3                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.404, value=21
+ 3                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.412, value=F
+ 3                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.394, value=Estudiante3
+ 30                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.436, value=93
+ 30                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.441, value=medio
+ 30                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.423, value=22
+ 30                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.427, value=F
+ 30                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.419, value=Estudiante30
+ 31                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.461, value=83
+ 31                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.468, value=alto
+ 31                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.453, value=18
+ 31                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.457, value=M
+ 31                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.449, value=Estudiante31
+ 32                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.490, value=62
+ 32                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.498, value=alto
+ 32                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.479, value=26
+ 32                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.486, value=M
+ 32                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.473, value=Estudiante32
+ 33                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.523, value=81
+ 33                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.527, value=alto
+ 33                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.513, value=23
+ 33                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.519, value=F
+ 33                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.506, value=Estudiante33
+ 34                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.551, value=62
+ 34                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.559, value=bajo
+ 34                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.538, value=26
+ 34                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.543, value=M
+ 34                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.534, value=Estudiante34
+ 35                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.585, value=70
+ 35                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.594, value=bajo
+ 35                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.572, value=20
+ 35                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.578, value=F
+ 35                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.566, value=Estudiante35
+ 36                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.617, value=89
+ 36                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.621, value=bajo
+ 36                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.607, value=21
+ 36                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.612, value=F
+ 36                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.601, value=Estudiante36
+ 37                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.640, value=52
+ 37                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.643, value=bajo
+ 37                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.629, value=19
+ 37                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.635, value=M
+ 37                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.625, value=Estudiante37
+ 38                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.663, value=67
+ 38                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.669, value=medio
+ 38                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.654, value=21
+ 38                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.659, value=M
+ 38                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.650, value=Estudiante38
+ 39                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.689, value=82
+ 39                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.694, value=medio
+ 39                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.677, value=27
+ 39                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.684, value=M
+ 39                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.673, value=Estudiante39
+ 4                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.459, value=98
+ 4                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.468, value=bajo
+ 4                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.446, value=22
+ 4                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.454, value=F
+ 4                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.439, value=Estudiante4
+ 40                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.713, value=80
+ 40                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.719, value=bajo
+ 40                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.705, value=27
+ 40                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.708, value=F
+ 40                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.701, value=Estudiante40
+ 41                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.742, value=61
+ 41                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.748, value=bajo
+ 41                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.727, value=27
+ 41                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.733, value=F
+ 41                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.723, value=Estudiante41
+ 42                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.768, value=63
+ 42                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.771, value=medio
+ 42                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.757, value=25
+ 42                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.761, value=F
+ 42                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.753, value=Estudiante42
+ 43                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.791, value=74
+ 43                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.796, value=alto
+ 43                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.782, value=18
+ 43                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.787, value=M
+ 43                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.775, value=Estudiante43
+ 44                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.817, value=52
+ 44                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.823, value=bajo
+ 44                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.807, value=23
+ 44                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.812, value=F
+ 44                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.803, value=Estudiante44
+ 45                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.844, value=83
+ 45                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.851, value=bajo
+ 45                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.834, value=18
+ 45                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.839, value=M
+ 45                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.827, value=Estudiante45
+ 46                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.872, value=86
+ 46                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.876, value=alto
+ 46                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.860, value=18
+ 46                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.866, value=M
+ 46                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.855, value=Estudiante46
+ 47                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.897, value=84
+ 47                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.905, value=alto
+ 47                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.885, value=25
+ 47                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.891, value=M
+ 47                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.880, value=Estudiante47
+ 48                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.925, value=73
+ 48                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.931, value=alto
+ 48                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.915, value=27
+ 48                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.920, value=F
+ 48                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.910, value=Estudiante48
+ 49                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.952, value=84
+ 49                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.957, value=bajo
+ 49                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.940, value=22
+ 49                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.948, value=M
+ 49                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.936, value=Estudiante49
+ 5                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.499, value=62
+ 5                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.504, value=medio
+ 5                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.485, value=21
+ 5                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.492, value=F
+ 5                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.478, value=Estudiante5
+ 50                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.975, value=68
+ 50                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.983, value=bajo
+ 50                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.966, value=18
+ 50                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.971, value=M
+ 50                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.961, value=Estudiante50
+ 51                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.007, value=84
+ 51                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.013, value=alto
+ 51                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.992, value=23
+ 51                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.998, value=M
+ 51                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.988, value=Estudiante51
+ 52                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.035, value=50
+ 52                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.040, value=alto
+ 52                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.024, value=25
+ 52                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.029, value=M
+ 52                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.019, value=Estudiante52
+ 53                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.061, value=86
+ 53                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.067, value=alto
+ 53                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.052, value=23
+ 53                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.056, value=M
+ 53                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.045, value=Estudiante53
+ 54                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.087, value=63
+ 54                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.091, value=medio
+ 54                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.075, value=23
+ 54                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.083, value=F
+ 54                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.070, value=Estudiante54
+ 55                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.109, value=66
+ 55                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.114, value=alto
+ 55                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.099, value=26
+ 55                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.102, value=M
+ 55                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.094, value=Estudiante55
+ 56                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.132, value=74
+ 56                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.137, value=medio
+ 56                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.122, value=25
+ 56                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.127, value=F
+ 56                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.119, value=Estudiante56
+ 57                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.157, value=51
+ 57                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.160, value=bajo
+ 57                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.143, value=21
+ 57                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.152, value=F
+ 57                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.140, value=Estudiante57
+ 58                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.175, value=88
+ 58                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.180, value=alto
+ 58                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.169, value=19
+ 58                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.172, value=F
+ 58                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.165, value=Estudiante58
+ 59                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.200, value=82
+ 59                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.205, value=alto
+ 59                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.190, value=22
+ 59                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.194, value=F
+ 59                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.186, value=Estudiante59
+ 6                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.528, value=95
+ 6                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.537, value=alto
+ 6                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.515, value=20
+ 6                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.521, value=F
+ 6                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.508, value=Estudiante6
+ 60                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.227, value=86
+ 60                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.233, value=bajo
+ 60                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.218, value=23
+ 60                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.223, value=F
+ 60                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.210, value=Estudiante60
+ 61                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.254, value=66
+ 61                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.258, value=alto
+ 61                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.244, value=20
+ 61                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.250, value=M
+ 61                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.238, value=Estudiante61
+ 62                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.273, value=69
+ 62                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.276, value=medio
+ 62                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.268, value=19
+ 62                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.271, value=F
+ 62                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.263, value=Estudiante62
+ 63                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.297, value=90
+ 63                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.303, value=medio
+ 63                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.286, value=27
+ 63                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.293, value=M
+ 63                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.283, value=Estudiante63
+ 64                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.318, value=57
+ 64                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.323, value=medio
+ 64                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.310, value=19
+ 64                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.315, value=F
+ 64                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.307, value=Estudiante64
+ 65                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.342, value=53
+ 65                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.344, value=alto
+ 65                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.335, value=20
+ 65                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.338, value=F
+ 65                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.330, value=Estudiante65
+ 66                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.364, value=62
+ 66                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.369, value=bajo
+ 66                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.356, value=19
+ 66                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.360, value=F
+ 66                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.350, value=Estudiante66
+ 67                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.386, value=59
+ 67                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.390, value=bajo
+ 67                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.376, value=26
+ 67                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.381, value=F
+ 67                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.372, value=Estudiante67
+ 68                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.425, value=74
+ 68                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.433, value=bajo
+ 68                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.410, value=26
+ 68                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.421, value=F
+ 68                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.401, value=Estudiante68
+ 69                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.448, value=89
+ 69                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.456, value=bajo
+ 69                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.441, value=26
+ 69                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.444, value=F
+ 69                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.437, value=Estudiante69
+ 7                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.574, value=75
+ 7                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.582, value=medio
+ 7                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.552, value=21
+ 7                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.561, value=M
+ 7                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.545, value=Estudiante7
+ 70                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.473, value=98
+ 70                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.476, value=bajo
+ 70                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.465, value=25
+ 70                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.470, value=F
+ 70                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.460, value=Estudiante70
+ 71                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.493, value=64
+ 71                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.498, value=bajo
+ 71                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.485, value=22
+ 71                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.490, value=F
+ 71                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.480, value=Estudiante71
+ 72                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.516, value=98
+ 72                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.522, value=bajo
+ 72                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.505, value=24
+ 72                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.510, value=M
+ 72                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.502, value=Estudiante72
+ 73                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.540, value=79
+ 73                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.547, value=alto
+ 73                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.528, value=18
+ 73                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.535, value=M
+ 73                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.525, value=Estudiante73
+ 74                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.568, value=96
+ 74                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.573, value=medio
+ 74                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.556, value=27
+ 74                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.563, value=M
+ 74                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.552, value=Estudiante74
+ 75                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.589, value=50
+ 75                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.604, value=medio
+ 75                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.581, value=27
+ 75                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.586, value=F
+ 75                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.576, value=Estudiante75
+ 76                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.626, value=55
+ 76                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.629, value=alto
+ 76                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.616, value=21
+ 76                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.622, value=F
+ 76                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.608, value=Estudiante76
+ 77                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.645, value=63
+ 77                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.651, value=alto
+ 77                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.639, value=21
+ 77                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.642, value=F
+ 77                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.636, value=Estudiante77
+ 78                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.663, value=82
+ 78                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.668, value=bajo
+ 78                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.656, value=20
+ 78                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.658, value=M
+ 78                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.653, value=Estudiante78
+ 79                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.685, value=78
+ 79                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.689, value=alto
+ 79                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.675, value=21
+ 79                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.679, value=M
+ 79                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.671, value=Estudiante79
+ 8                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.608, value=94
+ 8                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.618, value=alto
+ 8                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.594, value=18
+ 8                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.602, value=M
+ 8                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.590, value=Estudiante8
+ 80                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.704, value=68
+ 80                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.707, value=bajo
+ 80                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.696, value=26
+ 80                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.701, value=F
+ 80                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.692, value=Estudiante80
+ 81                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.720, value=87
+ 81                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.722, value=bajo
+ 81                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.713, value=24
+ 81                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.717, value=F
+ 81                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.709, value=Estudiante81
+ 82                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.739, value=52
+ 82                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.742, value=medio
+ 82                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.731, value=22
+ 82                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.736, value=M
+ 82                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.725, value=Estudiante82
+ 83                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.756, value=78
+ 83                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.760, value=alto
+ 83                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.750, value=20
+ 83                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.753, value=F
+ 83                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.747, value=Estudiante83
+ 84                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.773, value=63
+ 84                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.776, value=bajo
+ 84                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.768, value=24
+ 84                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.771, value=M
+ 84                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.766, value=Estudiante84
+ 85                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.791, value=62
+ 85                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.795, value=medio
+ 85                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.784, value=19
+ 85                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.787, value=F
+ 85                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.780, value=Estudiante85
+ 86                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.809, value=86
+ 86                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.813, value=bajo
+ 86                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.804, value=24
+ 86                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.807, value=M
+ 86                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.800, value=Estudiante86
+ 87                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.829, value=62
+ 87                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.835, value=alto
+ 87                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.820, value=27
+ 87                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.824, value=F
+ 87                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.817, value=Estudiante87
+ 88                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.850, value=98
+ 88                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.853, value=medio
+ 88                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.842, value=21
+ 88                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.846, value=F
+ 88                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.838, value=Estudiante88
+ 89                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.871, value=77
+ 89                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.875, value=alto
+ 89                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.861, value=23
+ 89                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.867, value=F
+ 89                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.858, value=Estudiante89
+ 9                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.684, value=64
+ 9                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.691, value=medio
+ 9                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.650, value=26
+ 9                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.674, value=M
+ 9                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.636, value=Estudiante9
+ 90                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.890, value=87
+ 90                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.893, value=medio
+ 90                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.882, value=26
+ 90                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.886, value=M
+ 90                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.877, value=Estudiante90
+ 91                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.906, value=93
+ 91                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.909, value=alto
+ 91                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.901, value=27
+ 91                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.904, value=F
+ 91                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.896, value=Estudiante91
+ 92                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.922, value=50
+ 92                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.924, value=alto
+ 92                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.917, value=22
+ 92                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.920, value=F
+ 92                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.912, value=Estudiante92
+ 93                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.937, value=56
+ 93                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.940, value=bajo
+ 93                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.931, value=26
+ 93                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.935, value=F
+ 93                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.927, value=Estudiante93
+ 94                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.954, value=81
+ 94                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.956, value=bajo
+ 94                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.948, value=22
+ 94                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.951, value=F
+ 94                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.943, value=Estudiante94
+ 95                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.970, value=84
+ 95                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.972, value=medio
+ 95                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.961, value=27
+ 95                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.965, value=F
+ 95                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.959, value=Estudiante95
+ 96                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.987, value=93
+ 96                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.990, value=bajo
+ 96                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.981, value=18
+ 96                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.985, value=F
+ 96                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.976, value=Estudiante96
+ 97                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:20.014, value=90
+ 97                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.018, value=alto
+ 97                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.999, value=22
+ 97                                              column=info_personal:genero, timestamp=2024-11-21T23:50:20.003, value=F
+ 97                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.993, value=Estudiante97
+ 98                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:20.039, value=64
+ 98                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.042, value=bajo
+ 98                                              column=info_personal:edad, timestamp=2024-11-21T23:50:20.027, value=27
+ 98                                              column=info_personal:genero, timestamp=2024-11-21T23:50:20.034, value=F
+ 98                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:20.023, value=Estudiante98
+ 99                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:20.062, value=87
+ 99                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.067, value=alto
+ 99                                              column=info_personal:edad, timestamp=2024-11-21T23:50:20.052, value=27
+ 99                                              column=info_personal:genero, timestamp=2024-11-21T23:50:20.056, value=F
+ 99                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:20.048, value=Estudiante99
+100 row(s)
+Took 0.5818 seconds
+hbase:017:0> scan 'estudiantes', {FILTER => "ValueFilter(=, 'binary:alto')"}
+ROW                                              COLUMN+CELL
+ 100                                             column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.090, value=alto
+ 15                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.961, value=alto
+ 16                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.998, value=alto
+ 18                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.060, value=alto
+ 19                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.090, value=alto
+ 2                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.382, value=alto
+ 21                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.158, value=alto
+ 23                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.235, value=alto
+ 28                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.389, value=alto
+ 29                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.412, value=alto
+ 31                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.468, value=alto
+ 32                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.498, value=alto
+ 33                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.527, value=alto
+ 43                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.796, value=alto
+ 46                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.876, value=alto
+ 47                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.905, value=alto
+ 48                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.931, value=alto
+ 51                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.013, value=alto
+ 52                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.040, value=alto
+ 53                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.067, value=alto
+ 55                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.114, value=alto
+ 58                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.180, value=alto
+ 59                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.205, value=alto
+ 6                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.537, value=alto
+ 61                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.258, value=alto
+ 65                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.344, value=alto
+ 73                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.547, value=alto
+ 76                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.629, value=alto
+ 77                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.651, value=alto
+ 79                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.689, value=alto
+ 8                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.618, value=alto
+ 83                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.760, value=alto
+ 87                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.835, value=alto
+ 89                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.875, value=alto
+ 91                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.909, value=alto
+ 92                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.924, value=alto
+ 97                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.018, value=alto
+ 99                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.067, value=alto
+38 row(s)
+Took 0.0918 seconds
+hbase:018:0> scan 'estudiantes', {COLUMNS => ['info_personal:nombre', 'academico:calificaciones']}
+ROW                                              COLUMN+CELL
+ 1                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.321, value=66
+ 1                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.280, value=Estudiante1
+ 10                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.749, value=54
+ 10                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.698, value=Estudiante10
+ 100                                             column=academico:calificaciones, timestamp=2024-11-21T23:50:20.087, value=86
+ 100                                             column=info_personal:nombre, timestamp=2024-11-21T23:50:20.073, value=Estudiante100
+ 11                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.807, value=59
+ 11                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.778, value=Estudiante11
+ 12                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.847, value=89
+ 12                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.822, value=Estudiante12
+ 13                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.883, value=69
+ 13                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.865, value=Estudiante13
+ 14                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.917, value=86
+ 14                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.896, value=Estudiante14
+ 15                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.955, value=85
+ 15                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.929, value=Estudiante15
+ 16                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.993, value=70
+ 16                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.975, value=Estudiante16
+ 17                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.028, value=93
+ 17                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.009, value=Estudiante17
+ 18                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.055, value=67
+ 18                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.039, value=Estudiante18
+ 19                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.086, value=86
+ 19                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.067, value=Estudiante19
+ 2                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.373, value=61
+ 2                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.342, value=Estudiante2
+ 20                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.119, value=59
+ 20                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.094, value=Estudiante20
+ 21                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.152, value=74
+ 21                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.130, value=Estudiante21
+ 22                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.189, value=52
+ 22                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.164, value=Estudiante22
+ 23                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.227, value=55
+ 23                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.205, value=Estudiante23
+ 24                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.265, value=86
+ 24                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.241, value=Estudiante24
+ 25                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.301, value=79
+ 25                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.280, value=Estudiante25
+ 26                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.329, value=76
+ 26                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.310, value=Estudiante26
+ 27                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.355, value=63
+ 27                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.340, value=Estudiante27
+ 28                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.384, value=79
+ 28                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.366, value=Estudiante28
+ 29                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.408, value=69
+ 29                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.393, value=Estudiante29
+ 3                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.420, value=75
+ 3                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.394, value=Estudiante3
+ 30                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.436, value=93
+ 30                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.419, value=Estudiante30
+ 31                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.461, value=83
+ 31                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.449, value=Estudiante31
+ 32                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.490, value=62
+ 32                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.473, value=Estudiante32
+ 33                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.523, value=81
+ 33                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.506, value=Estudiante33
+ 34                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.551, value=62
+ 34                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.534, value=Estudiante34
+ 35                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.585, value=70
+ 35                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.566, value=Estudiante35
+ 36                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.617, value=89
+ 36                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.601, value=Estudiante36
+ 37                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.640, value=52
+ 37                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.625, value=Estudiante37
+ 38                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.663, value=67
+ 38                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.650, value=Estudiante38
+ 39                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.689, value=82
+ 39                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.673, value=Estudiante39
+ 4                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.459, value=98
+ 4                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.439, value=Estudiante4
+ 40                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.713, value=80
+ 40                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.701, value=Estudiante40
+ 41                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.742, value=61
+ 41                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.723, value=Estudiante41
+ 42                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.768, value=63
+ 42                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.753, value=Estudiante42
+ 43                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.791, value=74
+ 43                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.775, value=Estudiante43
+ 44                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.817, value=52
+ 44                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.803, value=Estudiante44
+ 45                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.844, value=83
+ 45                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.827, value=Estudiante45
+ 46                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.872, value=86
+ 46                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.855, value=Estudiante46
+ 47                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.897, value=84
+ 47                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.880, value=Estudiante47
+ 48                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.925, value=73
+ 48                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.910, value=Estudiante48
+ 49                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.952, value=84
+ 49                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.936, value=Estudiante49
+ 5                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.499, value=62
+ 5                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.478, value=Estudiante5
+ 50                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.975, value=68
+ 50                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.961, value=Estudiante50
+ 51                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.007, value=84
+ 51                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.988, value=Estudiante51
+ 52                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.035, value=50
+ 52                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.019, value=Estudiante52
+ 53                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.061, value=86
+ 53                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.045, value=Estudiante53
+ 54                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.087, value=63
+ 54                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.070, value=Estudiante54
+ 55                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.109, value=66
+ 55                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.094, value=Estudiante55
+ 56                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.132, value=74
+ 56                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.119, value=Estudiante56
+ 57                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.157, value=51
+ 57                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.140, value=Estudiante57
+ 58                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.175, value=88
+ 58                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.165, value=Estudiante58
+ 59                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.200, value=82
+ 59                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.186, value=Estudiante59
+ 6                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.528, value=95
+ 6                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.508, value=Estudiante6
+ 60                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.227, value=86
+ 60                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.210, value=Estudiante60
+ 61                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.254, value=66
+ 61                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.238, value=Estudiante61
+ 62                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.273, value=69
+ 62                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.263, value=Estudiante62
+ 63                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.297, value=90
+ 63                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.283, value=Estudiante63
+ 64                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.318, value=57
+ 64                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.307, value=Estudiante64
+ 65                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.342, value=53
+ 65                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.330, value=Estudiante65
+ 66                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.364, value=62
+ 66                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.350, value=Estudiante66
+ 67                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.386, value=59
+ 67                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.372, value=Estudiante67
+ 68                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.425, value=74
+ 68                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.401, value=Estudiante68
+ 69                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.448, value=89
+ 69                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.437, value=Estudiante69
+ 7                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.574, value=75
+ 7                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.545, value=Estudiante7
+ 70                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.473, value=98
+ 70                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.460, value=Estudiante70
+ 71                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.493, value=64
+ 71                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.480, value=Estudiante71
+ 72                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.516, value=98
+ 72                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.502, value=Estudiante72
+ 73                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.540, value=79
+ 73                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.525, value=Estudiante73
+ 74                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.568, value=96
+ 74                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.552, value=Estudiante74
+ 75                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.589, value=50
+ 75                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.576, value=Estudiante75
+ 76                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.626, value=55
+ 76                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.608, value=Estudiante76
+ 77                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.645, value=63
+ 77                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.636, value=Estudiante77
+ 78                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.663, value=82
+ 78                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.653, value=Estudiante78
+ 79                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.685, value=78
+ 79                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.671, value=Estudiante79
+ 8                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.608, value=94
+ 8                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.590, value=Estudiante8
+ 80                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.704, value=68
+ 80                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.692, value=Estudiante80
+ 81                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.720, value=87
+ 81                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.709, value=Estudiante81
+ 82                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.739, value=52
+ 82                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.725, value=Estudiante82
+ 83                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.756, value=78
+ 83                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.747, value=Estudiante83
+ 84                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.773, value=63
+ 84                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.766, value=Estudiante84
+ 85                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.791, value=62
+ 85                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.780, value=Estudiante85
+ 86                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.809, value=86
+ 86                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.800, value=Estudiante86
+ 87                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.829, value=62
+ 87                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.817, value=Estudiante87
+ 88                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.850, value=98
+ 88                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.838, value=Estudiante88
+ 89                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.871, value=77
+ 89                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.858, value=Estudiante89
+ 9                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.684, value=64
+ 9                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.636, value=Estudiante9
+ 90                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.890, value=87
+ 90                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.877, value=Estudiante90
+ 91                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.906, value=93
+ 91                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.896, value=Estudiante91
+ 92                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.922, value=50
+ 92                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.912, value=Estudiante92
+ 93                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.937, value=56
+ 93                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.927, value=Estudiante93
+ 94                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.954, value=81
+ 94                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.943, value=Estudiante94
+ 95                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.970, value=84
+ 95                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.959, value=Estudiante95
+ 96                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.987, value=93
+ 96                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.976, value=Estudiante96
+ 97                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:20.014, value=90
+ 97                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.993, value=Estudiante97
+ 98                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:20.039, value=64
+ 98                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:20.023, value=Estudiante98
+ 99                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:20.062, value=87
+ 99                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:20.048, value=Estudiante99
+100 row(s)
+Took 0.3007 seconds
+hbase:019:0> get 'estudiantes', '1'
+COLUMN                                           CELL
+ academico:calificaciones                        timestamp=2024-11-21T23:50:17.321, value=66
+ academico:riesgo_desercion                      timestamp=2024-11-21T23:50:17.334, value=medio
+ info_personal:edad                              timestamp=2024-11-21T23:50:17.293, value=22
+ info_personal:genero                            timestamp=2024-11-21T23:50:17.307, value=M
+ info_personal:nombre                            timestamp=2024-11-21T23:50:17.280, value=Estudiante1
+1 row(s)
+Took 0.0205 seconds
+hbase:020:0> put 'estudiantes', '101', 'info_personal:nombre', 'Carlos Gomez'
+Took 0.0036 seconds
+hbase:021:0> put 'estudiantes', '101', 'info_personal:edad', '21'
+Took 0.0055 seconds
+hbase:022:0> put 'estudiantes', '101', 'info_personal:genero', 'M'
+Took 0.0054 seconds
+hbase:023:0> put 'estudiantes', '101', 'academico:calificaciones', '90'
+Took 0.0058 seconds
+hbase:024:0> put 'estudiantes', '101', 'academico:riesgo_desercion', 'medio'
+Took 0.0056 seconds
+hbase:025:0> put 'estudiantes', '1', 'academico:calificaciones', '95'
+Took 0.0055 seconds
+hbase:026:0> delete 'estudiantes', '1', 'info_personal:genero'
+Took 0.0170 seconds
+hbase:027:0> scan 'estudiantes'
+ROW                                              COLUMN+CELL
+ 1                                               column=academico:calificaciones, timestamp=2024-11-21T23:56:18.767, value=95
+ 1                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.334, value=medio
+ 1                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.293, value=22
+ 1                                               column=info_personal:genero, timestamp=2024-11-21T23:45:40.168, value=M
+ 1                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.280, value=Estudiante1
+ 10                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.749, value=54
+ 10                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.770, value=medio
+ 10                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.708, value=23
+ 10                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.725, value=F
+ 10                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.698, value=Estudiante10
+ 100                                             column=academico:calificaciones, timestamp=2024-11-21T23:50:20.087, value=86
+ 100                                             column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.090, value=alto
+ 100                                             column=info_personal:edad, timestamp=2024-11-21T23:50:20.077, value=26
+ 100                                             column=info_personal:genero, timestamp=2024-11-21T23:50:20.082, value=M
+ 100                                             column=info_personal:nombre, timestamp=2024-11-21T23:50:20.073, value=Estudiante100
+ 101                                             column=academico:calificaciones, timestamp=2024-11-21T23:55:23.692, value=90
+ 101                                             column=academico:riesgo_desercion, timestamp=2024-11-21T23:55:23.724, value=medio
+ 101                                             column=info_personal:edad, timestamp=2024-11-21T23:55:23.627, value=21
+ 101                                             column=info_personal:genero, timestamp=2024-11-21T23:55:23.661, value=M
+ 101                                             column=info_personal:nombre, timestamp=2024-11-21T23:55:23.600, value=Carlos Gomez
+ 11                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.807, value=59
+ 11                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.816, value=bajo
+ 11                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.787, value=23
+ 11                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.795, value=F
+ 11                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.778, value=Estudiante11
+ 12                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.847, value=89
+ 12                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.856, value=bajo
+ 12                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.830, value=23
+ 12                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.839, value=M
+ 12                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.822, value=Estudiante12
+ 13                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.883, value=69
+ 13                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.890, value=medio
+ 13                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.871, value=26
+ 13                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.876, value=M
+ 13                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.865, value=Estudiante13
+ 14                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.917, value=86
+ 14                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.923, value=bajo
+ 14                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.903, value=24
+ 14                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.909, value=F
+ 14                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.896, value=Estudiante14
+ 15                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.955, value=85
+ 15                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.961, value=alto
+ 15                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.937, value=27
+ 15                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.950, value=F
+ 15                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.929, value=Estudiante15
+ 16                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:17.993, value=70
+ 16                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.998, value=alto
+ 16                                              column=info_personal:edad, timestamp=2024-11-21T23:50:17.983, value=26
+ 16                                              column=info_personal:genero, timestamp=2024-11-21T23:50:17.988, value=M
+ 16                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:17.975, value=Estudiante16
+ 17                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.028, value=93
+ 17                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.035, value=bajo
+ 17                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.016, value=19
+ 17                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.023, value=M
+ 17                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.009, value=Estudiante17
+ 18                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.055, value=67
+ 18                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.060, value=alto
+ 18                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.044, value=22
+ 18                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.051, value=F
+ 18                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.039, value=Estudiante18
+ 19                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.086, value=86
+ 19                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.090, value=alto
+ 19                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.072, value=20
+ 19                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.077, value=F
+ 19                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.067, value=Estudiante19
+ 2                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.373, value=61
+ 2                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.382, value=alto
+ 2                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.352, value=22
+ 2                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.362, value=M
+ 2                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.342, value=Estudiante2
+ 20                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.119, value=59
+ 20                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.124, value=bajo
+ 20                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.104, value=23
+ 20                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.111, value=M
+ 20                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.094, value=Estudiante20
+ 21                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.152, value=74
+ 21                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.158, value=alto
+ 21                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.139, value=27
+ 21                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.144, value=M
+ 21                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.130, value=Estudiante21
+ 22                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.189, value=52
+ 22                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.195, value=bajo
+ 22                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.173, value=27
+ 22                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.179, value=F
+ 22                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.164, value=Estudiante22
+ 23                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.227, value=55
+ 23                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.235, value=alto
+ 23                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.212, value=27
+ 23                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.221, value=M
+ 23                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.205, value=Estudiante23
+ 24                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.265, value=86
+ 24                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.274, value=bajo
+ 24                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.247, value=22
+ 24                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.254, value=M
+ 24                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.241, value=Estudiante24
+ 25                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.301, value=79
+ 25                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.306, value=medio
+ 25                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.285, value=18
+ 25                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.293, value=F
+ 25                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.280, value=Estudiante25
+ 26                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.329, value=76
+ 26                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.335, value=bajo
+ 26                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.316, value=23
+ 26                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.323, value=F
+ 26                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.310, value=Estudiante26
+ 27                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.355, value=63
+ 27                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.359, value=medio
+ 27                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.344, value=25
+ 27                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.350, value=F
+ 27                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.340, value=Estudiante27
+ 28                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.384, value=79
+ 28                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.389, value=alto
+ 28                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.370, value=23
+ 28                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.376, value=M
+ 28                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.366, value=Estudiante28
+ 29                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.408, value=69
+ 29                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.412, value=alto
+ 29                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.399, value=24
+ 29                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.404, value=F
+ 29                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.393, value=Estudiante29
+ 3                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.420, value=75
+ 3                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.428, value=medio
+ 3                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.404, value=21
+ 3                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.412, value=F
+ 3                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.394, value=Estudiante3
+ 30                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.436, value=93
+ 30                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.441, value=medio
+ 30                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.423, value=22
+ 30                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.427, value=F
+ 30                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.419, value=Estudiante30
+ 31                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.461, value=83
+ 31                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.468, value=alto
+ 31                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.453, value=18
+ 31                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.457, value=M
+ 31                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.449, value=Estudiante31
+ 32                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.490, value=62
+ 32                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.498, value=alto
+ 32                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.479, value=26
+ 32                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.486, value=M
+ 32                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.473, value=Estudiante32
+ 33                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.523, value=81
+ 33                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.527, value=alto
+ 33                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.513, value=23
+ 33                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.519, value=F
+ 33                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.506, value=Estudiante33
+ 34                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.551, value=62
+ 34                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.559, value=bajo
+ 34                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.538, value=26
+ 34                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.543, value=M
+ 34                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.534, value=Estudiante34
+ 35                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.585, value=70
+ 35                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.594, value=bajo
+ 35                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.572, value=20
+ 35                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.578, value=F
+ 35                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.566, value=Estudiante35
+ 36                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.617, value=89
+ 36                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.621, value=bajo
+ 36                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.607, value=21
+ 36                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.612, value=F
+ 36                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.601, value=Estudiante36
+ 37                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.640, value=52
+ 37                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.643, value=bajo
+ 37                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.629, value=19
+ 37                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.635, value=M
+ 37                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.625, value=Estudiante37
+ 38                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.663, value=67
+ 38                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.669, value=medio
+ 38                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.654, value=21
+ 38                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.659, value=M
+ 38                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.650, value=Estudiante38
+ 39                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.689, value=82
+ 39                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.694, value=medio
+ 39                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.677, value=27
+ 39                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.684, value=M
+ 39                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.673, value=Estudiante39
+ 4                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.459, value=98
+ 4                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.468, value=bajo
+ 4                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.446, value=22
+ 4                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.454, value=F
+ 4                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.439, value=Estudiante4
+ 40                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.713, value=80
+ 40                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.719, value=bajo
+ 40                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.705, value=27
+ 40                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.708, value=F
+ 40                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.701, value=Estudiante40
+ 41                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.742, value=61
+ 41                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.748, value=bajo
+ 41                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.727, value=27
+ 41                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.733, value=F
+ 41                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.723, value=Estudiante41
+ 42                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.768, value=63
+ 42                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.771, value=medio
+ 42                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.757, value=25
+ 42                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.761, value=F
+ 42                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.753, value=Estudiante42
+ 43                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.791, value=74
+ 43                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.796, value=alto
+ 43                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.782, value=18
+ 43                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.787, value=M
+ 43                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.775, value=Estudiante43
+ 44                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.817, value=52
+ 44                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.823, value=bajo
+ 44                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.807, value=23
+ 44                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.812, value=F
+ 44                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.803, value=Estudiante44
+ 45                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.844, value=83
+ 45                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.851, value=bajo
+ 45                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.834, value=18
+ 45                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.839, value=M
+ 45                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.827, value=Estudiante45
+ 46                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.872, value=86
+ 46                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.876, value=alto
+ 46                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.860, value=18
+ 46                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.866, value=M
+ 46                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.855, value=Estudiante46
+ 47                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.897, value=84
+ 47                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.905, value=alto
+ 47                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.885, value=25
+ 47                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.891, value=M
+ 47                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.880, value=Estudiante47
+ 48                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.925, value=73
+ 48                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.931, value=alto
+ 48                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.915, value=27
+ 48                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.920, value=F
+ 48                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.910, value=Estudiante48
+ 49                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.952, value=84
+ 49                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.957, value=bajo
+ 49                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.940, value=22
+ 49                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.948, value=M
+ 49                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.936, value=Estudiante49
+ 5                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.499, value=62
+ 5                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.504, value=medio
+ 5                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.485, value=21
+ 5                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.492, value=F
+ 5                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.478, value=Estudiante5
+ 50                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:18.975, value=68
+ 50                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:18.983, value=bajo
+ 50                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.966, value=18
+ 50                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.971, value=M
+ 50                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.961, value=Estudiante50
+ 51                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.007, value=84
+ 51                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.013, value=alto
+ 51                                              column=info_personal:edad, timestamp=2024-11-21T23:50:18.992, value=23
+ 51                                              column=info_personal:genero, timestamp=2024-11-21T23:50:18.998, value=M
+ 51                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:18.988, value=Estudiante51
+ 52                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.035, value=50
+ 52                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.040, value=alto
+ 52                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.024, value=25
+ 52                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.029, value=M
+ 52                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.019, value=Estudiante52
+ 53                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.061, value=86
+ 53                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.067, value=alto
+ 53                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.052, value=23
+ 53                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.056, value=M
+ 53                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.045, value=Estudiante53
+ 54                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.087, value=63
+ 54                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.091, value=medio
+ 54                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.075, value=23
+ 54                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.083, value=F
+ 54                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.070, value=Estudiante54
+ 55                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.109, value=66
+ 55                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.114, value=alto
+ 55                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.099, value=26
+ 55                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.102, value=M
+ 55                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.094, value=Estudiante55
+ 56                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.132, value=74
+ 56                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.137, value=medio
+ 56                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.122, value=25
+ 56                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.127, value=F
+ 56                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.119, value=Estudiante56
+ 57                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.157, value=51
+ 57                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.160, value=bajo
+ 57                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.143, value=21
+ 57                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.152, value=F
+ 57                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.140, value=Estudiante57
+ 58                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.175, value=88
+ 58                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.180, value=alto
+ 58                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.169, value=19
+ 58                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.172, value=F
+ 58                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.165, value=Estudiante58
+ 59                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.200, value=82
+ 59                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.205, value=alto
+ 59                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.190, value=22
+ 59                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.194, value=F
+ 59                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.186, value=Estudiante59
+ 6                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.528, value=95
+ 6                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.537, value=alto
+ 6                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.515, value=20
+ 6                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.521, value=F
+ 6                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.508, value=Estudiante6
+ 60                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.227, value=86
+ 60                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.233, value=bajo
+ 60                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.218, value=23
+ 60                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.223, value=F
+ 60                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.210, value=Estudiante60
+ 61                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.254, value=66
+ 61                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.258, value=alto
+ 61                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.244, value=20
+ 61                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.250, value=M
+ 61                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.238, value=Estudiante61
+ 62                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.273, value=69
+ 62                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.276, value=medio
+ 62                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.268, value=19
+ 62                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.271, value=F
+ 62                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.263, value=Estudiante62
+ 63                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.297, value=90
+ 63                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.303, value=medio
+ 63                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.286, value=27
+ 63                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.293, value=M
+ 63                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.283, value=Estudiante63
+ 64                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.318, value=57
+ 64                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.323, value=medio
+ 64                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.310, value=19
+ 64                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.315, value=F
+ 64                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.307, value=Estudiante64
+ 65                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.342, value=53
+ 65                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.344, value=alto
+ 65                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.335, value=20
+ 65                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.338, value=F
+ 65                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.330, value=Estudiante65
+ 66                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.364, value=62
+ 66                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.369, value=bajo
+ 66                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.356, value=19
+ 66                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.360, value=F
+ 66                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.350, value=Estudiante66
+ 67                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.386, value=59
+ 67                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.390, value=bajo
+ 67                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.376, value=26
+ 67                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.381, value=F
+ 67                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.372, value=Estudiante67
+ 68                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.425, value=74
+ 68                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.433, value=bajo
+ 68                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.410, value=26
+ 68                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.421, value=F
+ 68                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.401, value=Estudiante68
+ 69                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.448, value=89
+ 69                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.456, value=bajo
+ 69                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.441, value=26
+ 69                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.444, value=F
+ 69                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.437, value=Estudiante69
+ 7                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.574, value=75
+ 7                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.582, value=medio
+ 7                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.552, value=21
+ 7                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.561, value=M
+ 7                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.545, value=Estudiante7
+ 70                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.473, value=98
+ 70                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.476, value=bajo
+ 70                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.465, value=25
+ 70                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.470, value=F
+ 70                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.460, value=Estudiante70
+ 71                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.493, value=64
+ 71                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.498, value=bajo
+ 71                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.485, value=22
+ 71                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.490, value=F
+ 71                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.480, value=Estudiante71
+ 72                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.516, value=98
+ 72                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.522, value=bajo
+ 72                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.505, value=24
+ 72                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.510, value=M
+ 72                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.502, value=Estudiante72
+ 73                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.540, value=79
+ 73                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.547, value=alto
+ 73                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.528, value=18
+ 73                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.535, value=M
+ 73                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.525, value=Estudiante73
+ 74                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.568, value=96
+ 74                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.573, value=medio
+ 74                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.556, value=27
+ 74                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.563, value=M
+ 74                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.552, value=Estudiante74
+ 75                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.589, value=50
+ 75                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.604, value=medio
+ 75                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.581, value=27
+ 75                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.586, value=F
+ 75                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.576, value=Estudiante75
+ 76                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.626, value=55
+ 76                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.629, value=alto
+ 76                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.616, value=21
+ 76                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.622, value=F
+ 76                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.608, value=Estudiante76
+ 77                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.645, value=63
+ 77                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.651, value=alto
+ 77                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.639, value=21
+ 77                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.642, value=F
+ 77                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.636, value=Estudiante77
+ 78                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.663, value=82
+ 78                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.668, value=bajo
+ 78                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.656, value=20
+ 78                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.658, value=M
+ 78                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.653, value=Estudiante78
+ 79                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.685, value=78
+ 79                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.689, value=alto
+ 79                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.675, value=21
+ 79                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.679, value=M
+ 79                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.671, value=Estudiante79
+ 8                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.608, value=94
+ 8                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.618, value=alto
+ 8                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.594, value=18
+ 8                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.602, value=M
+ 8                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.590, value=Estudiante8
+ 80                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.704, value=68
+ 80                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.707, value=bajo
+ 80                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.696, value=26
+ 80                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.701, value=F
+ 80                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.692, value=Estudiante80
+ 81                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.720, value=87
+ 81                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.722, value=bajo
+ 81                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.713, value=24
+ 81                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.717, value=F
+ 81                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.709, value=Estudiante81
+ 82                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.739, value=52
+ 82                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.742, value=medio
+ 82                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.731, value=22
+ 82                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.736, value=M
+ 82                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.725, value=Estudiante82
+ 83                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.756, value=78
+ 83                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.760, value=alto
+ 83                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.750, value=20
+ 83                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.753, value=F
+ 83                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.747, value=Estudiante83
+ 84                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.773, value=63
+ 84                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.776, value=bajo
+ 84                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.768, value=24
+ 84                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.771, value=M
+ 84                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.766, value=Estudiante84
+ 85                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.791, value=62
+ 85                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.795, value=medio
+ 85                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.784, value=19
+ 85                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.787, value=F
+ 85                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.780, value=Estudiante85
+ 86                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.809, value=86
+ 86                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.813, value=bajo
+ 86                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.804, value=24
+ 86                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.807, value=M
+ 86                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.800, value=Estudiante86
+ 87                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.829, value=62
+ 87                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.835, value=alto
+ 87                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.820, value=27
+ 87                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.824, value=F
+ 87                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.817, value=Estudiante87
+ 88                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.850, value=98
+ 88                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.853, value=medio
+ 88                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.842, value=21
+ 88                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.846, value=F
+ 88                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.838, value=Estudiante88
+ 89                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.871, value=77
+ 89                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.875, value=alto
+ 89                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.861, value=23
+ 89                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.867, value=F
+ 89                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.858, value=Estudiante89
+ 9                                               column=academico:calificaciones, timestamp=2024-11-21T23:50:17.684, value=64
+ 9                                               column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:17.691, value=medio
+ 9                                               column=info_personal:edad, timestamp=2024-11-21T23:50:17.650, value=26
+ 9                                               column=info_personal:genero, timestamp=2024-11-21T23:50:17.674, value=M
+ 9                                               column=info_personal:nombre, timestamp=2024-11-21T23:50:17.636, value=Estudiante9
+ 90                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.890, value=87
+ 90                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.893, value=medio
+ 90                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.882, value=26
+ 90                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.886, value=M
+ 90                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.877, value=Estudiante90
+ 91                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.906, value=93
+ 91                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.909, value=alto
+ 91                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.901, value=27
+ 91                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.904, value=F
+ 91                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.896, value=Estudiante91
+ 92                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.922, value=50
+ 92                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.924, value=alto
+ 92                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.917, value=22
+ 92                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.920, value=F
+ 92                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.912, value=Estudiante92
+ 93                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.937, value=56
+ 93                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.940, value=bajo
+ 93                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.931, value=26
+ 93                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.935, value=F
+ 93                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.927, value=Estudiante93
+ 94                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.954, value=81
+ 94                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.956, value=bajo
+ 94                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.948, value=22
+ 94                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.951, value=F
+ 94                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.943, value=Estudiante94
+ 95                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.970, value=84
+ 95                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.972, value=medio
+ 95                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.961, value=27
+ 95                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.965, value=F
+ 95                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.959, value=Estudiante95
+ 96                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:19.987, value=93
+ 96                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:19.990, value=bajo
+ 96                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.981, value=18
+ 96                                              column=info_personal:genero, timestamp=2024-11-21T23:50:19.985, value=F
+ 96                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.976, value=Estudiante96
+ 97                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:20.014, value=90
+ 97                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.018, value=alto
+ 97                                              column=info_personal:edad, timestamp=2024-11-21T23:50:19.999, value=22
+ 97                                              column=info_personal:genero, timestamp=2024-11-21T23:50:20.003, value=F
+ 97                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:19.993, value=Estudiante97
+ 98                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:20.039, value=64
+ 98                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.042, value=bajo
+ 98                                              column=info_personal:edad, timestamp=2024-11-21T23:50:20.027, value=27
+ 98                                              column=info_personal:genero, timestamp=2024-11-21T23:50:20.034, value=F
+ 98                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:20.023, value=Estudiante98
+ 99                                              column=academico:calificaciones, timestamp=2024-11-21T23:50:20.062, value=87
+ 99                                              column=academico:riesgo_desercion, timestamp=2024-11-21T23:50:20.067, value=alto
+ 99                                              column=info_personal:edad, timestamp=2024-11-21T23:50:20.052, value=27
+ 99                                              column=info_personal:genero, timestamp=2024-11-21T23:50:20.056, value=F
+ 99                                              column=info_personal:nombre, timestamp=2024-11-21T23:50:20.048, value=Estudiante99
+101 row(s)
+Took 0.2079 seconds
+hbase:028:0> https://github.com/gazabala/BigData.git
+Traceback (most recent call last):
+NameError (undefined local variable or method `github' for #<HBaseReceiver:0x5354bfce>)
+hbase:029:0> git@github.com:gazabala/BigData.git
+Traceback (most recent call last):
+NameError (uninitialized constant HBaseReceiver::BigData)
+hbase:030:0>
