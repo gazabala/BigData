@@ -1,3 +1,194 @@
+******************** // MongoDB // ********************
+
+{
+  "_id": "movie_id",                // ID único de la película
+  "title": "Inception",            // Título de la película
+  "release_year": 2010,            // Año de lanzamiento
+  "genres": ["Sci-Fi", "Thriller"],// Lista de géneros
+  "director": "Christopher Nolan", // Director de la película
+  "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt"], // Lista de actores principales
+  "ratings": {                     // Resumen de ratings
+    "average": 4.8,                // Rating promedio
+    "count": 1200                  // Número total de ratings
+  }
+}
+
+{
+  "_id": "user_id",                     // ID único del usuario
+  "name": "John Doe",                   // Nombre del usuario
+  "email": "johndoe@example.com",       // Correo electrónico
+  "preferences": {                      // Preferencias del usuario
+    "favorite_genres": ["Sci-Fi", "Action"], // Géneros favoritos
+    "watchlist": ["movie_id1", "movie_id2"]  // IDs de películas que quiere ver
+  },
+  "ratings": [                          // Lista de calificaciones realizadas
+    {
+      "movie_id": "movie_id1",          // ID de la película
+      "rating": 5,                      // Puntuación dada
+      "review": "Amazing movie!"        // Reseña opcional
+    }
+  ]
+}
+
+{
+  "_id": "review_id",                  // ID único de la reseña
+  "movie_id": "movie_id1",             // ID de la película reseñada
+  "user_id": "user_id1",               // ID del usuario que hizo la reseña
+  "rating": 4,                         // Calificación de 1 a 5
+  "review_text": "Great movie with amazing visuals!", // Texto de la reseña
+  "timestamp": "2024-11-01T15:45:00Z" // Fecha y hora de la reseña
+}
+
+{
+  "_id": "log_id",                     // ID único del evento
+  "user_id": "user_id1",               // ID del usuario
+  "event_type": "view",                // Tipo de evento (view, search, click, etc.)
+  "movie_id": "movie_id1",             // (Opcional) ID de la película relacionada
+  "timestamp": "2024-11-01T16:00:00Z" // Fecha y hora del evento
+}
+
+db.movies.find({ "genres": "Sci-Fi" })
+
+db.reviews.aggregate([
+  { $match: { "movie_id": "movie_id1" } },
+  { $group: { _id: "$movie_id", average_rating: { $avg: "$rating" } } }
+])
+
+db.users.find({ "_id": "user_id1" }, { "preferences.watchlist": 1 })
+
+db.logs.find({
+  "user_id": "user_id1",
+  "timestamp": { $gte: ISODate("2024-11-01T00:00:00Z") }
+})
+
+// Crear la base de datos
+use movie_recommendation;
+
+// Crear la colección de películas
+db.createCollection("movies");
+
+// Crear la colección de usuarios
+db.createCollection("users");
+
+// Crear la colección de reviews
+db.createCollection("reviews");
+
+// Insertar 100 películas con datos aleatorios
+for (let i = 1; i <= 100; i++) {
+    db.movies.insertOne({
+        title: `Movie ${i}`,
+        release_year: 2000 + (i % 21), // Año de lanzamiento entre 2000 y 2021
+        genres: i % 2 === 0 ? ["Action", "Adventure"] : ["Drama", "Comedy"],
+        director: `Director ${i % 10}`, // 10 directores distintos
+        cast: [`Actor ${i % 5}`, `Actor ${(i + 1) % 5}`], // Actores rotativos
+        ratings: {
+            average: Math.random() * 5, // Calificación promedio aleatoria entre 0 y 5
+            count: Math.floor(Math.random() * 1000) // Número de ratings aleatorios
+        }
+    });
+}
+
+// Insertar 50 usuarios con preferencias y ratings de prueba
+for (let i = 1; i <= 50; i++) {
+    db.users.insertOne({
+        name: `User ${i}`,
+        email: `user${i}@example.com`,
+        preferences: {
+            favorite_genres: i % 2 === 0 ? ["Action", "Sci-Fi"] : ["Drama", "Comedy"],
+            watchlist: [`Movie ${i % 100}`, `Movie ${(i + 1) % 100}`] // Watchlist aleatoria
+        },
+        ratings: [
+            {
+                movie_id: `Movie ${i % 100}`,
+                rating: Math.floor(Math.random() * 5) + 1, // Rating entre 1 y 5
+                review: `Review for Movie ${i % 100}`
+            }
+        ]
+    });
+}
+
+// Insertar 200 reseñas de prueba
+for (let i = 1; i <= 200; i++) {
+    db.reviews.insertOne({
+        movie_id: `Movie ${i % 100}`,
+        user_id: `User ${i % 50}`,
+        rating: Math.floor(Math.random() * 5) + 1, // Rating entre 1 y 5
+        review_text: `This is a review for Movie ${i % 100}`,
+        timestamp: new Date()
+    });
+
+}
+db.movies.insertOne({
+    title: "New Movie",
+    release_year: 2024,
+    genres: ["Sci-Fi", "Thriller"],
+    director: "Director X",
+    cast: ["Actor A", "Actor B"],
+    ratings: {
+        average: 4.5,
+        count: 100
+    }
+});
+
+db.movies.find({ release_year: { $gt: 2015 } });
+
+db.movies.updateOne(
+    { title: "Movie 1" },
+    { $set: { director: "Updated Director" } }
+);
+
+db.movies.deleteMany({ "ratings.count": { $lt: 10 } });
+
+db.movies.find({ genres: "Action" });
+
+db.users.find({
+    "preferences.favorite_genres": "Drama",
+    "preferences.watchlist": "Movie 5"
+});
+
+db.movies.find({
+    "ratings.average": { $gte: 3, $lte: 5 }
+});
+
+db.movies.find({
+    director: "Director 1",
+    release_year: { $gt: 2010 }
+});
+
+db.movies.aggregate([
+    { $unwind: "$genres" },
+    { $group: { _id: "$genres", count: { $sum: 1 } } }
+]);
+
+db.movies.aggregate([
+    { $group: { _id: "$director", average_rating: { $avg: "$ratings.average" } } }
+]);
+
+db.movies.aggregate([
+    { $group: { _id: "$director", average_rating: { $avg: "$ratings.average" } } }
+]);
+
+db.movies.aggregate([
+    { $sort: { "ratings.count": -1 } },
+    { $limit: 5 }
+]);
+
+db.movies.aggregate([
+    {
+        $group: {
+            _id: null,
+            average_rating: { $avg: "$ratings.average" },
+            min_rating: { $min: "$ratings.average" },
+            max_rating: { $max: "$ratings.average" }
+        }
+    }
+]);
+
+db.reviews.aggregate([
+    { $group: { _id: "$movie_id", count: { $sum: 1 } } }
+]);
+
+******************** // Hbase // ********************
 login as: vboxuser
 vboxuser@192.168.1.139's password:
 Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 5.15.0-122-generic x86_64)
